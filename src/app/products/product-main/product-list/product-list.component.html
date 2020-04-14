@@ -1,0 +1,30 @@
+<p>product-list works!</p>
+
+<div class="row">
+    <div class="col-4">
+        <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="busqueda" (keydown.enter)="buscar()">
+    </div>
+    <div>
+        <button class="btn btn-primary" type="button" (click)="buscar()">Buscar producto</button>
+    </div>
+    <div *ngIf="routeisMonitoreado">
+        <button class="btn btn-success" type="button"
+        [routerLink]="['/monitoreo']" routerLinkActive="router-link-active" 
+        (click)="addMonitoreados()">Añadir seleccionados a
+            monitoreados</button>
+    </div>
+
+</div>
+
+    
+<p *ngIf="busqueda.length > 0">buscando: {{busqueda}}</p>
+
+<div *ngIf="filtrados.length==0" class="alert alert-danger" role="alert">
+    <strong>Ningún producto concuerda con la búsqueda</strong>
+</div>
+
+<div class="mt-2">
+    <ul *ngFor="let f of filtrados">
+        <app-product [prod]="f" (checkBoxState)="productChange($event)"></app-product>
+    </ul>
+

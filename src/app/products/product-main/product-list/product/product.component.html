@@ -1,0 +1,39 @@
+<li class="border list-unstyled">
+    <div class="row">
+        <div class="col-1">
+            <input type="checkbox"
+                    [(ngModel)] = "checkbox" (change) = "handleChangeCheckBox()">
+        </div>
+    </div>
+
+    <div class="media col">
+        <img class="mr-3" src="https://picsum.photos/id/{{prod.uid}}/100/100" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0 mb-1">{{prod.nombre}}</h5>
+            <p>Precio (MXN): ${{prod.precio}}</p>
+            <p>marca: {{prod.marca}} </p>
+            <p>Descripción: {{prod.descripcion}} </p>
+            <p>Existencia: {{prod.existencia}}</p>
+        </div>
+        <div class="media-right col-2 mt-3">
+            <div class="row">
+                <a name="" id="" class="btn btn-primary" href="#" role="button"
+                [routerLink]="['/product',prod.uid,'edit']" routerLinkActive="router-link-active" >
+                    <input type="image" src="../../../assets/write.png" width="18" height="18">
+                </a>
+            </div>
+            <div class="row mt-3">
+                <a name="" id="" class="btn btn-primary" href="#" role="button"
+                [routerLink]="['/product',prod.uid]" routerLinkActive="router-link-active" >
+                    <input type="image" src="../../../assets/search png.png" width="18" height="18">
+                </a>
+            </div>
+            <div class="row mt-3">
+                <a name="" id="" class="btn btn-danger" role="button">
+                    <input type="image" src="../../../assets/basura.png" width="18" height="18"
+                        (click) = "deleteProduct()">
+                </a>
+            </div>
+        </div>
+    </div>
+</li>
